@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>kiiwas-space</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap">
+  <style>
+    @font-face {
+      font-family: 'SF Pro Display';
+      src: local('SF Pro Display'), local('San Francisco'), local('system-ui');
+      font-weight: 400;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="stars-bg"></canvas>
+  <div id="profiles-container">
+    <div class="profile">
+      <img src="images/nowa.png" alt="Profile 1" class="profile-img">
+      <div class="profile-tooltip">Uzayın derinliklerinde <b>NOWACS İN THE WORLD</b></div>
+      <a href="https://instagram.com/nowaky16" target="_blank" class="profile-social">
+        <i class="fab fa-instagram"></i>
+      </a>
+    </div>
+    <div class="profile">
+      <img src="images/kiiwas.png" alt="Profile 2" class="profile-img">
+      <div class="profile-tooltip">EVRENİN <b>KÜRDÜ</b> KİİWAS</div>
+      <a href="https://instagram.com/egeexcc" target="_blank" class="profile-social">
+        <i class="fab fa-instagram"></i>
+      </a>
+    </div>
+    <div class="profile">
+      <img src="images/orions.png" alt="Profile 3" class="profile-img">
+      <div class="profile-tooltip">Galaksinin <b>OROSPUSU</b> Orionss</div>
+      <a href="https://instagram.com/orionss.01" target="_blank" class="profile-social">
+        <i class="fab fa-instagram"></i>
+      </a>
+    </div>
+  </div>
+  <div id="center-cube-container">
+    <canvas id="cube-canvas" width="700" height="200"></canvas>
+  </div>
+  <div id="made-by">made by kiiwas</div>
+  <div id="social-fixed">
+  <a href="https://nowacs.com" target="_blank" class="social-icon"><i class="fas fa-globe"></i></a>
+    <a href="https://youtube.com/@Nowacs16" target="_blank" class="social-icon"><i class="fab fa-youtube"></i></a>
+    <a href="https://discord.gg/nowacs" target="_blank" class="social-icon"><i class="fab fa-discord"></i></a>
+  </div>
+  <audio id="site-music" src="music/music.mp3" preload="auto"></audio>
+  <script src="script.js"></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', function() {
+      var audio = document.getElementById('site-music');
+      if (audio) {
+        audio.volume = 0.18;
+        // Otomatik başlatma için kullanıcı etkileşimi gerekebilir, ilk tıklamada başlatmak için:
+        function playMusicOnce() {
+          audio.play();
+          window.removeEventListener('click', playMusicOnce);
+        }
+        // Bazı tarayıcılarda otomatik başlatma kısıtlaması için:
+        audio.play().catch(() => {
+          window.addEventListener('click', playMusicOnce);
+        });
+      }
+    });
+  </script>
+</body>
+</html>
